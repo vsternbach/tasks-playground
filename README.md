@@ -1,4 +1,6 @@
-# angularjs-typescript-webpack starter
+# tasks-playground
+
+[![Build Status](https://travis-ci.org/vsternbach/tasks-playground.svg?branch=master)](https://travis-ci.org/vsternbach/tasks-playground)
 
 This project is an application skeleton for [AngularJS](http://angularjs.org/) 1.6+ web app using new component syntax, typescript 2 and webpack 2.
 
