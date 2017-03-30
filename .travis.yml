@@ -15,7 +15,5 @@ script:
   - npm run build
 
 after_success:
-  - firebase deploy
+  - firebase deploy --token $FIREBASE_TOKEN
 
-deploy:
-  provider: firebase
