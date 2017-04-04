@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/vsternbach/tasks-playground.svg?branch=master)](https://travis-ci.org/vsternbach/tasks-playground)
 
 A sample tasks manager application to demonstrate the use of [angular-ts-decorators](https://github.com/vsternbach/angular-ts-decorators) library. It will serve as a playground for future porting of it to angular 4, react and maybe vue.js frameworks for self-learning and as an experiment to demonstrate the process of migration of angularjs applications to the most recent and popular frameworks. Future plans are to make application available as mobile and desktop application using native script/react-native and electron.
+
 Some highlights of features and technologies used in the project:
 - written in typescript 2.2 using angularjs 1.6 and component based architecture
 - uses Google Tasks API with OAuth 2 authentication
@@ -19,12 +20,7 @@ To get you started you can simply clone the repository.
 
 ### Running the App during Development
 
-The project comes preconfigured with a local development webserver.
-You can start this webserver running:
-```
-npm run start
-```
-Now browse to the app at `http://localhost:3000/`.
+`npm run start` will run dev build task with watch and serve the application on `http://localhost:3000/`.
 
 ### Building and running the App for Production
 
