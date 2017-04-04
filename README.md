@@ -2,47 +2,30 @@
 
 [![Build Status](https://travis-ci.org/vsternbach/tasks-playground.svg?branch=master)](https://travis-ci.org/vsternbach/tasks-playground)
 
-This project is an application skeleton for [AngularJS](http://angularjs.org/) 1.6+ web app using new component syntax, typescript 2 and webpack 2.
-
-Project uses [angular-ts-decorators](https://github.com/vsternbach/angular-ts-decorators) to mimic angular 2+ style development in angularjs environment with typescript and webpack.
+A sample tasks manager application to demonstrate the use of [angular-ts-decorators](https://github.com/vsternbach/angular-ts-decorators) library. It will serve as a playground for future porting of it to angular 4, react and maybe vue.js frameworks for self-learning and as an experiment to demonstrate the process of migration of angularjs applications to the most recent and popular frameworks. Future plans are to make application available as mobile and desktop application using native script/react-native and electron.
+Some highlights of features and technologies used in the project:
+- written in typescript 2.2 using angularjs 1.6 and component based architecture
+- uses Google Tasks API with OAuth 2 authentication
+- uses [Material Design Lite](https://getmdl.io/) for styling
+- uses new async/await syntax in asynchronous code
+- project based on [angularjs-typescript-webpack](https://github.com/vsternbach/angularjs-typescript-webpack) boilerplate
+- has integration with Travis CI for testing(yet to be implemented) and deployment to firebase
 
 You can see the working demo of the project at https://tasks-162620.firebaseapp.com
 
 ## Getting Started
 
-To get you started you can simply clone the angularjs-typescript-webpack repository.
-
-Some of the project dependencies are used just for example and can be removed if not needed. 
-
-### Clone angularjs-typescript-webpack
-
-Clone the angularjs-typescript-webpack repository using git:
-
-### Install Dependencies
-
-We have two kinds of dependencies in this project: development tools and application specific packages. They are both managed with npm in package.json as devDependencies and dependencies respectively.
-
-```
-npm install
-```
-
-## Directory Layout
-
-```
-src/                    --> all of the source files for the application
-  assets/           --> static app assets
-  components/           --> all app specific modules
-  services/                --> all app common services
-  main.ts                --> main application module
-  index.html            --> app layout file (the main html template file of the app)
-```
+To get you started you can simply clone the repository.
 
 ### Running the App during Development
 
-The angularjs-typescript-webpack project comes preconfigured with a local development webserver. It is a webpack-dev-server, that supports hot reload.  You can start this webserver with `npm start`.
-
+The project comes preconfigured with a local development webserver.
+You can start this webserver running:
+```
+npm run start
+```
 Now browse to the app at `http://localhost:3000/`.
 
-### Building and running the App in Production
+### Building and running the App for Production
 
 To build the application for production just run `npm build`, it creates dist directory that have the production optimized build.
