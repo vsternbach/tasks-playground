@@ -1,6 +1,7 @@
 # tasks-playground
 
 [![Build Status](https://travis-ci.org/vsternbach/tasks-playground.svg?branch=master)](https://travis-ci.org/vsternbach/tasks-playground)
+[![bitHound Overall Score](https://www.bithound.io/github/vsternbach/tasks-playground/badges/score.svg)](https://www.bithound.io/github/vsternbach/tasks-playground)
 
 A sample tasks manager application to demonstrate the use of [angular-ts-decorators](https://github.com/vsternbach/angular-ts-decorators) library. It will serve as a playground for future porting of it to angular 4, react and maybe vue.js frameworks for self-learning and as an experiment to demonstrate the process of migration of angularjs applications to the most recent and popular frameworks. Future plans are to make application available as mobile and desktop application using native script/react-native and electron.
 
