@@ -8,27 +8,27 @@ const template = require('./task.html');
   template
 })
 export class TaskComponent implements ng.IComponentController {
-  public isUpdating: boolean;
-  public editMode: boolean;
-  @Input() public task: ITask;
-  @Output() public onDelete: Function;
+  isUpdating: boolean;
+  editMode: boolean;
+  @Input() task: ITask;
+  @Output() onDelete: Function;
 
   /*@ngInject*/
   constructor(private TasksService: TasksService) {}
 
-  public $onInit() {
+  $onInit() {
     setTimeout(() => window['componentHandler'].upgradeAllRegistered(), 10);
   }
 
-  public get isCompleted() {
+  get isCompleted() {
     return TasksService.isTaskCompleted(this.task);
   }
 
-  public toggleEditMode(off?: boolean) {
+  toggleEditMode(off?: boolean) {
     this.editMode = off ? false : !this.editMode;
   }
 
-  public async updateTitle() {
+  async updateTitle() {
     this.isUpdating = true;
     try {
       await this.TasksService.updateTask(this.task.id, { title: this.task.title });
@@ -39,7 +39,7 @@ export class TaskComponent implements ng.IComponentController {
     }
   }
 
-  public async deleteTask() {
+  async deleteTask() {
     try {
       await this.TasksService.deleteTask(this.task.id);
       this.onDelete({
@@ -50,7 +50,7 @@ export class TaskComponent implements ng.IComponentController {
     }
   }
 
-  public async updateStatus() {
+  async updateStatus() {
     this.isUpdating = true;
     const status = !this.isCompleted ? taskStatus.completed : taskStatus.needsAction;
     try {

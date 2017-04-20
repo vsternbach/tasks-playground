@@ -10,26 +10,26 @@ export enum KeyboardCharCode {Enter = 13, Esc = 27}
   template
 })
 export class TasksListsComponent implements ng.IComponentController {
-  @Output() public onSelectionChange: Function;
-  public tasklistTitle: string;
-  public taskLists: any[];
+  @Output() onSelectionChange: Function;
+  tasklistTitle: string;
+  taskLists: any[];
   /*@ngInject*/
   constructor(private TasksService: TasksService, private $element: ng.IAugmentedJQuery) {}
 
-  public async $onInit() {
+  async $onInit() {
     this.taskLists = await this.TasksService.getTasklists();
     window['componentHandler'].upgradeAllRegistered();
   }
 
-  public removeTasklist($event: { tasklist: ITasklist }) {
+  removeTasklist($event: { tasklist: ITasklist }) {
     this.taskLists = this.taskLists.filter(list => list.id !== $event.tasklist.id);
   }
 
-  public changeTasklist($event: { tasklist: ITasklist }) {
+  changeTasklist($event: { tasklist: ITasklist }) {
     this.onSelectionChange({ $event });
   }
 
-  public handleTyping($event: KeyboardEvent) {
+  handleTyping($event: KeyboardEvent) {
     if ($event.charCode === KeyboardCharCode.Enter) {
       this.addTasklist();
       this.blurInput();

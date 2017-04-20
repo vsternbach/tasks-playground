@@ -1,9 +1,9 @@
 {
-  "name": "angularjs-typescript-webpack",
+  "name": "tasks-playground",
   "private": true,
   "version": "1.0.0",
-  "description": "Angularjs-typescript-webpack starter project",
-  "repository": "https://github.com/vsternbach/angularjs-typescript-webpack",
+  "description": "Example app to show the use of angular-ts-decorators",
+  "repository": "https://github.com/vsternbach/tasks-playground",
   "license": "MIT",
   "devDependencies": {
     "@types/angular": "^1.6.7",

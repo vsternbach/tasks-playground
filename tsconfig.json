@@ -10,7 +10,7 @@
     "lib": ["es2015", "dom"]
   },
   "files": [
-    "src/main.ts"
+    "src/bootstrap.ts"
   ],
   "exclude": [
     "node_modules"

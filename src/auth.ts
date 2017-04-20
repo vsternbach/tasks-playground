@@ -32,15 +32,15 @@ export class OAuth extends EventEmitter {
     gapi.load('client:auth2', () => this.initClient());
   }
 
-  public isSignedIn(): boolean {
+  isSignedIn(): boolean {
     return gapi.auth2.getAuthInstance().isSignedIn.get();
   }
 
-  public signIn() {
+  signIn() {
     gapi.auth2.getAuthInstance().signIn();
   }
 
-  public signOut() {
+  signOut() {
     gapi.auth2.getAuthInstance().signOut();
   }
 

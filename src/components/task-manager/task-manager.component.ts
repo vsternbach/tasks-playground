@@ -9,18 +9,17 @@ const template = require('./task-manager.html');
   template
 })
 export class TaskManager implements ng.IComponentController {
-  public tasklist: PartialTask;
+  tasklist: PartialTask;
+
   /*@ngInject*/
   constructor(private TasksService: TasksService) {}
 
-  public $onInit() {
+  $onInit() {
     setTimeout(() => window['componentHandler'].upgradeAllRegistered(), 10);
     this.tasklist = { id: this.TasksService.tasklistId };
   }
 
-  public changeTasklist($event: { tasklist: ITasklist }) {
+  changeTasklist($event: { tasklist: ITasklist }) {
     this.tasklist = $event.tasklist;
   }
-
-  public $onDestroy() {}
 }

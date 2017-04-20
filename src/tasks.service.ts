@@ -19,7 +19,7 @@ export interface ITask extends ITasklist {
 
 type Partial<T> = {
   [P in keyof T]?: T[P];
-  };
+};
 
 export type PartialTask = Partial<ITask>;
 
@@ -32,10 +32,9 @@ interface IGTasksAPI {
   tasks: any;
   tasklists: any;
 }
-// interface IGTasksEndpoints {
-// }
 
 const defaultTasklist = '@default';
+
 @Injectable('TasksService')
 export class TasksService {
   public tasklistId: string;

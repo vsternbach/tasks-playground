@@ -8,22 +8,22 @@ const template = require('./tasklist.html');
   template
 })
 export class TaskslistItemComponent implements ng.IComponentController {
-  @Input() public tasklist: ITasklist;
-  @Output() public onDelete: Function;
-  @Output() public onSelect: Function;
+  @Input() tasklist: ITasklist;
+  @Output() onDelete: Function;
+  @Output() onSelect: Function;
 
-  public editMode: boolean;
-  public isLoading: boolean;
-  public tasklistTitle: string;
+  editMode: boolean;
+  isLoading: boolean;
+  tasklistTitle: string;
 
   /*@ngInject*/
   constructor(private TasksService: TasksService) {}
 
-  public $onInit() {
+  $onInit() {
     this.tasklistTitle = this.tasklist.title;
   }
 
-  public rename() {
+  rename() {
     if (!this.editMode) {
       this.toggleEditMode();
       return;
@@ -36,7 +36,7 @@ export class TaskslistItemComponent implements ng.IComponentController {
     }
   }
 
-  public async updateTitle() {
+  async updateTitle() {
     try {
       this.isLoading = true;
       const update = await this.TasksService.updateTasklist(this.tasklist.id, { title: this.tasklistTitle });
@@ -49,7 +49,7 @@ export class TaskslistItemComponent implements ng.IComponentController {
     }
   }
 
-  public async delete() {
+  async delete() {
     try {
       await this.TasksService.deleteTasklist(this.tasklist.id);
       this.onDelete({
@@ -60,13 +60,13 @@ export class TaskslistItemComponent implements ng.IComponentController {
     }
   }
 
-  public selectTasklist() {
+  selectTasklist() {
     this.onSelect({
       $event: { tasklist: this.tasklist}
     });
   }
 
-  public handleTyping($event: KeyboardEvent) {
+  handleTyping($event: KeyboardEvent) {
     switch ($event.charCode) {
       case KeyboardCharCode.Esc:
         break;

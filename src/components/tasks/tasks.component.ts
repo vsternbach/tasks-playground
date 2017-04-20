@@ -9,52 +9,52 @@ const template = require('./tasks.html');
   template
 })
 export class TasksComponent implements ng.IComponentController {
-  @Input() public tasklist: string;
-  public selectedTask: string;
-  public tasks: ITask[] = [];
-  public newItem: PartialTask;
+  @Input() tasklist: string;
+  selectedTask: string;
+  tasks: ITask[] = [];
+  newItem: PartialTask;
 
   /*@ngInject*/
   constructor(private TasksService: TasksService) {}
 
-  public $onInit() {
+  $onInit() {
     // this.getTasks();
   }
 
-  public $onChanges({tasklist}: ng.IOnChangesObject) {
+  $onChanges({tasklist}: ng.IOnChangesObject) {
     if (tasklist) {
       this.getTasks(tasklist.currentValue);
     }
   }
 
-  public get isCompleted() {
+  get isCompleted() {
     return this.newItem && this.newItem.status === taskStatus.completed;
   }
 
-  public toggleNewItemStatus() {
+  toggleNewItemStatus() {
     this.newItem.status = !this.isCompleted ? taskStatus.completed : taskStatus.needsAction;
   }
 
-  public begetNewItem() {
+  begetNewItem() {
     this.newItem = {
       title: '',
       status: taskStatus.needsAction
     };
   }
 
-  public handleTyping($event: KeyboardEvent) {
+  handleTyping($event: KeyboardEvent) {
     if ($event.charCode === KeyboardCharCode.Enter) {
       this.addTask();
     }
   }
 
-  public handleEsc($event: KeyboardEvent) {
+  handleEsc($event: KeyboardEvent) {
     if ($event.keyCode === KeyboardCharCode.Esc) {
       this.newItem = null;
     }
   }
 
-  public async addTask() {
+  async addTask() {
     try {
       const newTask = await this.TasksService.addTask(this.newItem);
       this.newItem = null;
@@ -64,11 +64,11 @@ export class TasksComponent implements ng.IComponentController {
     }
   }
 
-  public removeTask($event: { task: ITask }) {
+  removeTask($event: { task: ITask }) {
     this.tasks = this.tasks.filter(task => task.id !== $event.task.id);
   }
 
-  public async getTasks(tasklist: string) {
+  async getTasks(tasklist: string) {
     try {
       this.tasks = [...await this.TasksService.getTasks(tasklist)];
     } catch (e) {
@@ -76,7 +76,7 @@ export class TasksComponent implements ng.IComponentController {
     }
   }
 
-  public selectTask($event) {
+  selectTask($event) {
     this.selectedTask = $event.task;
   }
 }
